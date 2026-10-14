@@ -26,7 +26,7 @@ public class Alumno {
         this.codigoPrograma = codigoPrograma;
     }
 
-    // --- Métodos de Acceso (Getters y Setters) en formato camelCase ---
+    // --- Métodos de Acceso (Getters y Setters) en formato camelCase ---///
 
     public String getCodigoAlumno() { return codigoAlumno; }
     public void setCodigoAlumno(String codigoAlumno) { this.codigoAlumno = codigoAlumno; }

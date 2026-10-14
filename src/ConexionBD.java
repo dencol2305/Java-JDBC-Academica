@@ -47,9 +47,9 @@ public class ConexionBD {
         // Retorno del flujo para que pueda ser utilizado por los módulos DAO
         return objetoConexion;
     }
-
-    /*
-      Método principal (Main) utilizado de forma parcial como banco de pruebas del módulo.
+/* 
+    
+//Método principal (Main) utilizado de forma parcial como banco de pruebas del módulo de conexion a la DB.
      
     public static void main(String[] args) {
         // Llamado explícito al método de conexión para realizar el testeo en la terminal
@@ -66,12 +66,14 @@ public class ConexionBD {
             }
         }
     }
-}*/
+        */
 
-/**
-     * Método principal (Main) que sirve como banco de pruebas automático
-     * para insertar y consultar un alumno de forma real en la base de datos.
-     */
+    
+
+/*
+     Método principal (Main) que sirve como banco de pruebas automático
+      para insertar y consultar un alumno de forma real en la base de datos. 
+    
     public static void main(String[] args) {
         System.out.println("=== INICIANDO BANCO DE PRUEBAS DE ALUMNOS ===");
         
@@ -116,4 +118,68 @@ public class ConexionBD {
         System.out.println("\n=== FIN DE LA PRUEBA ===");
     }
 
+    */
+
+
+     
+
+/*
+      Método principal (Main) que sirve como banco de pruebas automático
+      para verificar las operaciones de Actualización y Eliminación del CRUD.
+     
+    public static void main(String[] args) {
+        System.out.println("=== INICIANDO PRUEBAS DE ACTUALIZACIÓN Y ELIMINACIÓN ===");
+        
+        // 1. Instanciamos el controlador de operaciones
+        AlumnoCrud gestorAlumnos = new AlumnoCrud();
+        
+        // 2. Definimos el código del alumno con el que realizaremos las pruebas
+        String codigoObjetivo = "5100"; 
+        
+        // ==========================================================
+        // PROBANDO LA ACTUALIZACIÓN (UPDATE)
+        // ==========================================================
+        System.out.println("\n--- 1. Modificando datos del alumno " + codigoObjetivo + " ---");
+        
+        // Creamos el objeto con los nuevos datos que queremos implantar en la base de datos
+        // Cambiaremos la ciudad a 'Pasto' y la edad a 22 años
+        Alumno alumnoModificado = new Alumno(
+            codigoObjetivo, 
+            "Carlos Mendoza Modificado", 
+            22, 
+            java.sql.Date.valueOf("2005-05-15"), 
+            "Pasto", 
+            "M", 
+            "01"
+        );
+        
+        // Enviamos el objeto al método de actualización del CRUD
+        boolean resultadoActualizar = gestorAlumnos.actualizarAlumno(alumnoModificado);
+        
+        if (resultadoActualizar) {
+            System.out.println("¡Éxito! El registro fue actualizado correctamente en MySQL.");
+        } else {
+            System.out.println("Fallo: No se pudo actualizar el registro.");
+        }
+
+        /*  ==========================================================
+        // PROBANDO LA ELIMINACIÓN (DELETE)
+        // ========================================================== 
+        
+        System.out.println("\n--- 2. Eliminando al alumno " + codigoObjetivo + " ---");
+        
+        // Ejecutamos la eliminación física enviando únicamente la llave primaria
+        boolean resultadoEliminar = gestorAlumnos.eliminarAlumno(codigoObjetivo);
+        
+        if (resultadoEliminar) {
+            System.out.println("¡Éxito! El alumno fue removido físicamente de la tabla 'tabalum'.");
+        } else {
+            System.out.println("Fallo: No se pudo eliminar el registro.");
+        }
+        
+        
+        System.out.println("\n=== FIN DE LAS PRUEBAS DEL CRUD ===");
+    }
+    */
+        
 }
